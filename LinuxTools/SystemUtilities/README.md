@@ -70,3 +70,6 @@ Ensure all scripts include standard headers:
 ### install_and_run_speedtest.sh
 - **Description:** Check if Ookla Speedtest CLI is installed, install if missing, then run it
 
+### install_advcp.sh
+- **Description:** Install advcp/advmv with optional aliases configured in .bashrc
+

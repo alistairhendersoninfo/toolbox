@@ -5,7 +5,6 @@
 master="README.md"
 instructions="ReadmeInstructions.md"
 
-# Start master README with static instructions
 cat "$instructions" > "$master"
 echo "" >> "$master"
 echo "# Toolbox Scripts Summary" >> "$master"
@@ -17,21 +16,38 @@ process_script() {
     local section="$3"
 
     md=$(grep -m 1 '^# *MD:' "$script" | sed -E 's/^# *MD:[[:space:]]*//')
+    mdd=$(grep -m 1 '^# *MDD:' "$script" | sed -E 's/^# *MDD:[[:space:]]*//')
     mi=$(grep -m 1 '^# *MI:' "$script" | sed -E 's/^# *MI:[[:space:]]*//')
+    info=$(grep -m 1 '^# *INFO:' "$script" | sed -E 's/^# *INFO:[[:space:]]*//')
     script_name=$(basename "$script")
 
     echo "### $script_name" >> "$readme"
     echo "- **Description:** ${md:-N/A}" >> "$readme"
-    [ -n "$mi" ] && echo "- **MI:** $mi (menu will appear if this exists)" >> "$readme"
+    [ -n "$mdd" ] && echo "- **Extra:** $mdd" >> "$readme"
+    if [ -n "$mi" ]; then
+        if command -v "$mi" >/dev/null 2>&1; then
+            echo "- **MI:** $mi (installed, menu available)" >> "$readme"
+        else
+            echo "- **MI:** $mi (not installed, menu hidden)" >> "$readme"
+        fi
+    fi
+    [ -n "$info" ] && echo "- **Info:** $info" >> "$readme"
     echo "" >> "$readme"
 
     echo "### [$section] $script_name" >> "$master"
     echo "- **Description:** ${md:-N/A}" >> "$master"
-    [ -n "$mi" ] && echo "- **MI:** $mi (menu will appear if this exists)" >> "$master"
+    [ -n "$mdd" ] && echo "- **Extra:** $mdd" >> "$master"
+    if [ -n "$mi" ]; then
+        if command -v "$mi" >/dev/null 2>&1; then
+            echo "- **MI:** $mi (installed, menu available)" >> "$master"
+        else
+            echo "- **MI:** $mi (not installed, menu hidden)" >> "$master"
+        fi
+    fi
+    [ -n "$info" ] && echo "- **Info:** $info" >> "$master"
     echo "" >> "$master"
 }
 
-# Process LinuxTools subdirectories
 if [ -d "LinuxTools/" ]; then
     echo "## Linux Tools" >> "$master"
     echo "" >> "$master"
@@ -48,7 +64,6 @@ if [ -d "LinuxTools/" ]; then
     done
 fi
 
-# Process other top-level directories (excluding LinuxTools)
 for dir in */ ; do
     [ -d "$dir" ] || continue
     [[ "$dir" == "LinuxTools/" ]] && continue

@@ -1,0 +1,38 @@
+name: Daily incremental MkDocs update
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Runs daily at 2am UTC
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install pipx
+        run: |
+          python3 -m pip install --user pipx
+          python3 -m pipx ensurepath
+          export PATH=$PATH:~/.local/bin
+
+      - name: Install MkDocs and Material theme
+        run: |
+          pipx install mkdocs
+          pipx inject mkdocs mkdocs-material
+
+      - name: Generate incremental documentation pages
+        run: |
+          chmod +x update_pages.sh
+          ./update_pages.sh 1
+
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force

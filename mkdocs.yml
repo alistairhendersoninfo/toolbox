@@ -1,0 +1,6 @@
+site_name: Toolbox Documentation
+theme:
+  name: material
+
+nav:
+  - Home: index.md

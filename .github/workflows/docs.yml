@@ -1,0 +1,38 @@
+name: Build and deploy MkDocs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install pipx
+        run: |
+          python3 -m pip install --user pipx
+          python3 -m pipx ensurepath
+          export PATH=$PATH:~/.local/bin
+
+      - name: Install MkDocs and Material theme
+        run: |
+          pipx install mkdocs
+          pipx inject mkdocs mkdocs-material
+
+      - name: Generate documentation pages
+        run: |
+          chmod +x init_pages.sh
+          ./init_pages.sh
+
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
