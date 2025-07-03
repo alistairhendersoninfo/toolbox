@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-
 #MN create_script_skeleton
 #MD Create new Toolbox script skeleton
-#MDD Interactive generator for new Toolbox scripts with standard metadata headers, selectable or creatable directories, colour highlights for dangerous scripts, saved with executable permission.
+#MDD Interactive generator for new Toolbox scripts with full metadata, selectable/creatable directories, colour highlights, and EFFECTIVE_USER logic.
 #MI ToolboxCore
 #INFO https://internal.tool/docs/toolbox
 
@@ -36,52 +35,31 @@ menu_ddesc=$(dialog --inputbox "Enter Detailed Description (#MDD):" 10 60 3>&1 1
 integration_obj="$selected_dir"  # Auto-assign to selected directory as MI
 
 project_url=$(dialog --inputbox "Enter Project or Software URL (#INFO):" 10 60 3>&1 1>&2 2>&3) || exit 1
+menu_colour=$(dialog --inputbox "Enter Menu Colour (#MC, default/danger/etc):" 10 60 "default" 3>&1 1>&2 2>&3) || exit 1
+menu_pos=$(dialog --inputbox "Enter Menu Position (#MP, numeric or keyword):" 10 60 "50" 3>&1 1>&2 2>&3) || exit 1
+menu_tags=$(dialog --inputbox "Enter Additional Tags (#MTAGS, comma-separated):" 10 60 3>&1 1>&2 2>&3) || exit 1
+author=$(dialog --inputbox "Enter Author (#MAUTHOR):" 10 60 "$(whoami)" 3>&1 1>&2 2>&3) || exit 1
 
 # Radio list for Icon selection
-icon=$(dialog --radiolist "Select Icon (#MICON):" 20 60 10 \
-"🛠️" "Tool / General" ON \
-"⚙️" "Configuration" OFF \
-"📦" "Package / Install" OFF \
-"🚀" "Launch / Deploy" OFF \
-"✅" "Check / Verify" OFF \
-"❌" "Exit / Remove" OFF \
-"📝" "Edit / Write" OFF \
-"🔒" "Security / Lock" OFF \
-"🔧" "Maintenance" OFF \
-"💡" "Info / Tips" OFF \
+icon=$(dialog --radiolist "Select Icon (#MIICON):" 20 60 10 \
+"gear" "General / Config" ON \
+"package" "Package / Install" OFF \
+"rocket" "Launch / Deploy" OFF \
+"check" "Check / Verify" OFF \
+"cross" "Exit / Remove" OFF \
+"edit" "Edit / Write" OFF \
+"lock" "Security / Lock" OFF \
+"wrench" "Maintenance" OFF \
+"info" "Info / Tips" OFF \
 3>&1 1>&2 2>&3) || exit 1
 
-# Ask if script requires special colour highlight
-special_colour=$(dialog --yesno "Does this script require a special colour highlight?\n\nExamples:\n- Red for dangerous or destructive scripts\n- Orange for caution\n\nSelect YES to choose a specific colour, or NO to use global theme branding." 15 60; echo $?)
-
-if [ "$special_colour" -eq 0 ]; then
-    # User chose YES
-    color=$(dialog --radiolist "Select Colour Highlight (#MCOLOR):" 15 60 5 \
-    "Z1" "Red - Dangerous / Destructive" ON \
-    "Z3" "Orange - Warning / Caution" OFF \
-    "Z2" "Green - Safe / Standard" OFF \
-    "Z4" "Blue - Info / Non-critical" OFF \
-    "GLOBAL" "Use global branding" OFF \
-    3>&1 1>&2 2>&3) || exit 1
-
-    # If GLOBAL chosen, set to empty to follow global branding script
-    [ "$color" == "GLOBAL" ] && color=""
-else
-    # User chose NO
-    color=""
-fi
-
-order=$(dialog --inputbox "Enter Order (#MORDER, numeric):" 10 60 "999999" 3>&1 1>&2 2>&3) || exit 1
-default=$(dialog --inputbox "Set as default selection? (#MDEFAULT, true/false):" 10 60 "false" 3>&1 1>&2 2>&3) || exit 1
-separator=$(dialog --inputbox "Enter Separator label (#MSEPARATOR, optional):" 10 60 3>&1 1>&2 2>&3) || exit 1
-
 # Confirm before creation
-dialog --yesno "Create script:\n\nName: $script_name\nDir: $save_dir\nDesc: $menu_desc\nIcon: $icon\nColour: $color\nOrder: $order" 15 60 || exit 1
+dialog --yesno "Create script:\n\nName: $script_name\nDir: $save_dir\nDesc: $menu_desc\nIcon: $icon\nColour: $menu_colour\nPosition: $menu_pos" 15 60 || exit 1
 
 # Script filename
 script_file="$save_dir/${script_name}.sh"
 
-# Create script with metadata header
+# Create script with full metadata header
 cat << EOF2 > "$script_file"
 #!/usr/bin/env bash
 #MN $script_name
@@ -89,13 +67,16 @@ cat << EOF2 > "$script_file"
 #MDD $menu_ddesc
 #MI $integration_obj
 #INFO $project_url
-#MICON $icon
-#MCOLOR $color
-#MORDER $order
-#MDEFAULT $default
-#MSEPARATOR $separator
+#MC $menu_colour
+#MP $menu_pos
+#MIICON $icon
+#MTAGS $menu_tags
+#MAUTHOR $author
 
-# Your script logic starts here
+source \$TOOLBOX_DIR/ToolboxCore/generic_functions.sh
+resolve_user_home
+
+# Script logic starts here
 
 EOF2
 

@@ -5,9 +5,24 @@
 #MI ToolboxCore
 #INFO https://sqlite.org/
 
-mkdir -p ~/.config/toolbox
+# Determine target user home directory robustly
+if [ -n "$EFFECTIVE_USER" ]; then
+  USER_HOME=$(eval echo "~$EFFECTIVE_USER")
+else
+  USER_HOME="$HOME"
+fi
 
-sqlite3 ~/.config/toolbox/state.db <<SQL
+DB_DIR="$USER_HOME/.config/toolbox"
+DBFILE="$DB_DIR/state.db"
+
+echo "🔧 Initialising Toolbox database at $DBFILE..."
+
+# Ensure directory exists with correct ownership
+sudo mkdir -p "$DB_DIR"
+sudo chown "$EFFECTIVE_USER:$EFFECTIVE_USER" "$DB_DIR"
+
+# Create database and table
+sqlite3 "$DBFILE" <<SQL
 CREATE TABLE IF NOT EXISTS state (
   script TEXT NOT NULL,
   step TEXT NOT NULL,
@@ -18,4 +33,4 @@ CREATE TABLE IF NOT EXISTS state (
 );
 SQL
 
-echo "✅ Toolbox database initialised at ~/.config/toolbox/state.db with message column support."
+echo "✅ Toolbox database initialised at $DBFILE with message column support."
