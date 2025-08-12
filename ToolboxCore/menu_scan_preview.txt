@@ -1,0 +1,51 @@
+📁 ToolboxSetup
+  📝 create_script_skeleton.sh
+📁 ToolboxPages
+  📝 init_pages.sh
+  📝 update_pages.sh
+  📝 generate_readme.sh
+📁 LinuxTools
+  📝 01.install_browsh.sh
+  📝 02.install_elinks.sh
+  📝 03.install_links.sh
+  📝 04.install_w3m.sh
+  📁 PerformanceMonitoring
+    📝 htop.sh
+    📝 iftop.sh
+    📝 iotop.sh
+    📝 top.sh
+  📁 SystemSecurityUtilities
+    📁 selinux
+      📝 selinux_chatgpt_stream.sh
+      📝 selinux_disable.sh
+      📝 selinux_install.sh
+      📝 selinux_set_enforcing.sh
+      📝 selinux_set_permissive.sh
+    📁 ssl
+      📝 install_letsencrypt_certbot.sh
+  📁 SystemTweaks
+    📝 disable_ipv6.sh
+  📁 SystemUtilities
+    📝 install_advcp.sh
+    📝 install_and_run_speedtest.sh
+📁 ToolboxTools
+  📁 ToolboxColours
+    📝 backup_dialogrc.sh
+    📝 blue_steel_theme.sh
+    📝 cyan_ice_theme.sh
+    📝 dark_theme.sh
+    📝 green_matrix_theme.sh
+    📝 magenta_glow_theme.sh
+    📝 red_alert_theme.sh
+    📝 reset_theme.sh
+    📝 set_custom_theme.sh
+    📝 yellow_green_theme.sh
+  📝 view_install_progress.sh
+📁 CollaboraOnline
+  📝 update_coolwsd_config.sh
+📁 SystemSecurityUtilities
+  📝 selinux_chatgpt_stream.sh
+  📝 selinux_disable.sh
+  📝 selinux_install.sh
+  📝 selinux_set_enforcing.sh
+  📝 selinux_set_permissive.sh

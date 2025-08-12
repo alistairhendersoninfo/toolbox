@@ -5,7 +5,6 @@
 #MI ToolboxCore
 #INFO https://sqlite.org/
 
-# Determine target user home directory robustly
 if [ -n "$EFFECTIVE_USER" ]; then
   USER_HOME=$(eval echo "~$EFFECTIVE_USER")
 else
@@ -17,11 +16,9 @@ DBFILE="$DB_DIR/state.db"
 
 echo "🔧 Initialising Toolbox database at $DBFILE..."
 
-# Ensure directory exists with correct ownership
 sudo mkdir -p "$DB_DIR"
 sudo chown "$EFFECTIVE_USER:$EFFECTIVE_USER" "$DB_DIR"
 
-# Create database and table
 sqlite3 "$DBFILE" <<SQL
 CREATE TABLE IF NOT EXISTS state (
   script TEXT NOT NULL,

@@ -1,0 +1,283 @@
+[
+  {
+    "type": "directory",
+    "name": "ToolboxSetup",
+    "path": "ToolboxSetup",
+    "children": [
+      {
+        "type": "script",
+        "name": "create_script_skeleton.sh",
+        "path": "ToolboxSetup/create_script_skeleton.sh"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "ToolboxPages",
+    "path": "ToolboxPages",
+    "children": [
+      {
+        "type": "script",
+        "name": "init_pages.sh",
+        "path": "ToolboxPages/init_pages.sh"
+      },
+      {
+        "type": "script",
+        "name": "update_pages.sh",
+        "path": "ToolboxPages/update_pages.sh"
+      },
+      {
+        "type": "script",
+        "name": "generate_readme.sh",
+        "path": "ToolboxPages/generate_readme.sh"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "LinuxTools",
+    "path": "LinuxTools",
+    "children": [
+      {
+        "type": "script",
+        "name": "01.install_browsh.sh",
+        "path": "LinuxTools/01.install_browsh.sh"
+      },
+      {
+        "type": "script",
+        "name": "02.install_elinks.sh",
+        "path": "LinuxTools/02.install_elinks.sh"
+      },
+      {
+        "type": "script",
+        "name": "03.install_links.sh",
+        "path": "LinuxTools/03.install_links.sh"
+      },
+      {
+        "type": "script",
+        "name": "04.install_w3m.sh",
+        "path": "LinuxTools/04.install_w3m.sh"
+      },
+      {
+        "type": "directory",
+        "name": "PerformanceMonitoring",
+        "path": "LinuxTools/PerformanceMonitoring",
+        "children": [
+          {
+            "type": "script",
+            "name": "htop.sh",
+            "path": "LinuxTools/PerformanceMonitoring/htop.sh"
+          },
+          {
+            "type": "script",
+            "name": "iftop.sh",
+            "path": "LinuxTools/PerformanceMonitoring/iftop.sh"
+          },
+          {
+            "type": "script",
+            "name": "iotop.sh",
+            "path": "LinuxTools/PerformanceMonitoring/iotop.sh"
+          },
+          {
+            "type": "script",
+            "name": "top.sh",
+            "path": "LinuxTools/PerformanceMonitoring/top.sh"
+          }
+        ]
+      },
+      {
+        "type": "directory",
+        "name": "SystemSecurityUtilities",
+        "path": "LinuxTools/SystemSecurityUtilities",
+        "children": [
+          {
+            "type": "directory",
+            "name": "selinux",
+            "path": "LinuxTools/SystemSecurityUtilities/selinux",
+            "children": [
+              {
+                "type": "script",
+                "name": "selinux_chatgpt_stream.sh",
+                "path": "LinuxTools/SystemSecurityUtilities/selinux/selinux_chatgpt_stream.sh"
+              },
+              {
+                "type": "script",
+                "name": "selinux_disable.sh",
+                "path": "LinuxTools/SystemSecurityUtilities/selinux/selinux_disable.sh"
+              },
+              {
+                "type": "script",
+                "name": "selinux_install.sh",
+                "path": "LinuxTools/SystemSecurityUtilities/selinux/selinux_install.sh"
+              },
+              {
+                "type": "script",
+                "name": "selinux_set_enforcing.sh",
+                "path": "LinuxTools/SystemSecurityUtilities/selinux/selinux_set_enforcing.sh"
+              },
+              {
+                "type": "script",
+                "name": "selinux_set_permissive.sh",
+                "path": "LinuxTools/SystemSecurityUtilities/selinux/selinux_set_permissive.sh"
+              }
+            ]
+          },
+          {
+            "type": "directory",
+            "name": "ssl",
+            "path": "LinuxTools/SystemSecurityUtilities/ssl",
+            "children": [
+              {
+                "type": "script",
+                "name": "install_letsencrypt_certbot.sh",
+                "path": "LinuxTools/SystemSecurityUtilities/ssl/install_letsencrypt_certbot.sh"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "directory",
+        "name": "SystemTweaks",
+        "path": "LinuxTools/SystemTweaks",
+        "children": [
+          {
+            "type": "script",
+            "name": "disable_ipv6.sh",
+            "path": "LinuxTools/SystemTweaks/disable_ipv6.sh"
+          }
+        ]
+      },
+      {
+        "type": "directory",
+        "name": "SystemUtilities",
+        "path": "LinuxTools/SystemUtilities",
+        "children": [
+          {
+            "type": "script",
+            "name": "install_advcp.sh",
+            "path": "LinuxTools/SystemUtilities/install_advcp.sh"
+          },
+          {
+            "type": "script",
+            "name": "install_and_run_speedtest.sh",
+            "path": "LinuxTools/SystemUtilities/install_and_run_speedtest.sh"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "ToolboxTools",
+    "path": "ToolboxTools",
+    "children": [
+      {
+        "type": "directory",
+        "name": "ToolboxColours",
+        "path": "ToolboxTools/ToolboxColours",
+        "children": [
+          {
+            "type": "script",
+            "name": "backup_dialogrc.sh",
+            "path": "ToolboxTools/ToolboxColours/backup_dialogrc.sh"
+          },
+          {
+            "type": "script",
+            "name": "blue_steel_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/blue_steel_theme.sh"
+          },
+          {
+            "type": "script",
+            "name": "cyan_ice_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/cyan_ice_theme.sh"
+          },
+          {
+            "type": "script",
+            "name": "dark_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/dark_theme.sh"
+          },
+          {
+            "type": "script",
+            "name": "green_matrix_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/green_matrix_theme.sh"
+          },
+          {
+            "type": "script",
+            "name": "magenta_glow_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/magenta_glow_theme.sh"
+          },
+          {
+            "type": "script",
+            "name": "red_alert_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/red_alert_theme.sh"
+          },
+          {
+            "type": "script",
+            "name": "reset_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/reset_theme.sh"
+          },
+          {
+            "type": "script",
+            "name": "set_custom_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/set_custom_theme.sh"
+          },
+          {
+            "type": "script",
+            "name": "yellow_green_theme.sh",
+            "path": "ToolboxTools/ToolboxColours/yellow_green_theme.sh"
+          }
+        ]
+      },
+      {
+        "type": "script",
+        "name": "view_install_progress.sh",
+        "path": "ToolboxTools/view_install_progress.sh"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "CollaboraOnline",
+    "path": "CollaboraOnline",
+    "children": [
+      {
+        "type": "script",
+        "name": "update_coolwsd_config.sh",
+        "path": "CollaboraOnline/update_coolwsd_config.sh"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "SystemSecurityUtilities",
+    "path": "SystemSecurityUtilities",
+    "children": [
+      {
+        "type": "script",
+        "name": "selinux_chatgpt_stream.sh",
+        "path": "SystemSecurityUtilities/selinux_chatgpt_stream.sh"
+      },
+      {
+        "type": "script",
+        "name": "selinux_disable.sh",
+        "path": "SystemSecurityUtilities/selinux_disable.sh"
+      },
+      {
+        "type": "script",
+        "name": "selinux_install.sh",
+        "path": "SystemSecurityUtilities/selinux_install.sh"
+      },
+      {
+        "type": "script",
+        "name": "selinux_set_enforcing.sh",
+        "path": "SystemSecurityUtilities/selinux_set_enforcing.sh"
+      },
+      {
+        "type": "script",
+        "name": "selinux_set_permissive.sh",
+        "path": "SystemSecurityUtilities/selinux_set_permissive.sh"
+      }
+    ]
+  }
+]

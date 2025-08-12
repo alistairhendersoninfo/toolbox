@@ -1,0 +1,43 @@
+# Main Menu
+while true; do
+  choice=$(dialog --stdout --clear --backtitle "$BACKTITLE" --title "$TITLE" \
+    --menu "Select an option:" 15 60 8 \
+    1 "ToolboxSetup" \
+    2 "ToolboxPages" \
+    3 "LinuxTools" \
+    4 "ToolboxTools" \
+    5 "CollaboraOnline" \
+    6 "SystemSecurityUtilities" \
+    7 "Exit")
+  case "$choice" in
+    1)
+      level2_menu
+      ;;
+    2)
+      level2_menu
+      ;;
+    3)
+      level2_menu
+      ;;
+    4)
+      level2_menu
+      ;;
+    5)
+      level2_menu
+      ;;
+    6)
+      level2_menu
+      ;;
+    7)
+      dialog --backtitle "$BACKTITLE" --title "🥷 Farewell" --msgbox "Demo complete.
+Goodbye, ninja warrior." 6 50
+      clear
+      exit 0
+      ;;
+    *)
+      clear
+      exit 0
+      ;;
+  esac
+done
+clear

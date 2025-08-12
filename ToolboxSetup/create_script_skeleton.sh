@@ -7,6 +7,9 @@
 
 TOOLBOX_DIR="/opt/toolbox"
 
+# Defensive initialization
+script_name="${script_name:-}"
+
 # Prompt for Menu Name (script filename)
 script_name=$(dialog --inputbox "Enter script filename (without .sh extension):" 10 60 3>&1 1>&2 2>&3) || exit 1
 script_name=$(echo "$script_name" | tr -d '[:space:]')
@@ -32,7 +35,7 @@ save_dir="$TOOLBOX_DIR/$selected_dir"
 # Prompt for remaining metadata fields
 menu_desc=$(dialog --inputbox "Enter Menu Description (#MD):" 10 60 3>&1 1>&2 2>&3) || exit 1
 menu_ddesc=$(dialog --inputbox "Enter Detailed Description (#MDD):" 10 60 3>&1 1>&2 2>&3) || exit 1
-integration_obj="$selected_dir"  # Auto-assign to selected directory as MI
+integration_obj="$selected_dir"
 
 project_url=$(dialog --inputbox "Enter Project or Software URL (#INFO):" 10 60 3>&1 1>&2 2>&3) || exit 1
 menu_colour=$(dialog --inputbox "Enter Menu Colour (#MC, default/danger/etc):" 10 60 "default" 3>&1 1>&2 2>&3) || exit 1

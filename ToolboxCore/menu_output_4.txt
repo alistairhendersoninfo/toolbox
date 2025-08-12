@@ -1,0 +1,64 @@
+# Level 4 menu submenu
+level4_menu() {
+  while true; do
+    choice=$(dialog --stdout --backtitle "$BACKTITLE" --title "$TITLE Menu" \
+      --menu "Select an option:" 15 60 8 \
+      3.6.1.1 "3.6.1.1 selinux_chatgpt_stream.sh" \
+      3.6.1.2 "3.6.1.2 selinux_disable.sh" \
+      3.6.1.3 "3.6.1.3 selinux_install.sh" \
+      3.6.1.4 "3.6.1.4 selinux_set_enforcing.sh" \
+      3.6.1.5 "3.6.1.5 selinux_set_permissive.sh" \
+      3.6.2.1 "3.6.2.1 install_letsencrypt_certbot.sh" \
+      Return "Return to Main Menu")
+    case "$choice" in
+      3.6.1.1)
+        if /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_chatgpt_stream.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_chatgpt_stream.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_chatgpt_stream.sh" 6 50
+        fi
+        ;;
+      3.6.1.2)
+        if /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_disable.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_disable.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_disable.sh" 6 50
+        fi
+        ;;
+      3.6.1.3)
+        if /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_install.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_install.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_install.sh" 6 50
+        fi
+        ;;
+      3.6.1.4)
+        if /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_set_enforcing.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_set_enforcing.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_set_enforcing.sh" 6 50
+        fi
+        ;;
+      3.6.1.5)
+        if /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_set_permissive.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_set_permissive.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_set_permissive.sh" 6 50
+        fi
+        ;;
+      3.6.2.1)
+        if /opt/toolbox/LinuxTools/SystemSecurityUtilities/ssl/install_letsencrypt_certbot.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: install_letsencrypt_certbot.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: install_letsencrypt_certbot.sh" 6 50
+        fi
+        ;;
+      Return)
+        break
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+}

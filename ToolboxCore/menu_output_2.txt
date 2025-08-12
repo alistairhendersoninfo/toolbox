@@ -1,0 +1,156 @@
+# Level 2 menu submenu
+level2_menu() {
+  while true; do
+    choice=$(dialog --stdout --backtitle "$BACKTITLE" --title "$TITLE Menu" \
+      --menu "Select an option:" 15 60 22 \
+      1.1 "1.1 create_script_skeleton.sh" \
+      2.1 "2.1 init_pages.sh" \
+      2.2 "2.2 update_pages.sh" \
+      2.3 "2.3 generate_readme.sh" \
+      3.1 "3.1 01.install_browsh.sh" \
+      3.2 "3.2 02.install_elinks.sh" \
+      3.3 "3.3 03.install_links.sh" \
+      3.4 "3.4 04.install_w3m.sh" \
+      3.5 "3.5 PerformanceMonitoring" \
+      3.6 "3.6 SystemSecurityUtilities" \
+      3.7 "3.7 SystemTweaks" \
+      3.8 "3.8 SystemUtilities" \
+      4.1 "4.1 ToolboxColours" \
+      4.2 "4.2 view_install_progress.sh" \
+      5.1 "5.1 update_coolwsd_config.sh" \
+      6.1 "6.1 selinux_chatgpt_stream.sh" \
+      6.2 "6.2 selinux_disable.sh" \
+      6.3 "6.3 selinux_install.sh" \
+      6.4 "6.4 selinux_set_enforcing.sh" \
+      6.5 "6.5 selinux_set_permissive.sh" \
+      Return "Return to Main Menu")
+    case "$choice" in
+      1.1)
+        if /opt/toolbox/ToolboxSetup/create_script_skeleton.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: create_script_skeleton.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: create_script_skeleton.sh" 6 50
+        fi
+        ;;
+      2.1)
+        if /opt/toolbox/ToolboxPages/init_pages.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: init_pages.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: init_pages.sh" 6 50
+        fi
+        ;;
+      2.2)
+        if /opt/toolbox/ToolboxPages/update_pages.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: update_pages.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: update_pages.sh" 6 50
+        fi
+        ;;
+      2.3)
+        if /opt/toolbox/ToolboxPages/generate_readme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: generate_readme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: generate_readme.sh" 6 50
+        fi
+        ;;
+      3.1)
+        if /opt/toolbox/LinuxTools/01.install_browsh.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: 01.install_browsh.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: 01.install_browsh.sh" 6 50
+        fi
+        ;;
+      3.2)
+        if /opt/toolbox/LinuxTools/02.install_elinks.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: 02.install_elinks.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: 02.install_elinks.sh" 6 50
+        fi
+        ;;
+      3.3)
+        if /opt/toolbox/LinuxTools/03.install_links.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: 03.install_links.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: 03.install_links.sh" 6 50
+        fi
+        ;;
+      3.4)
+        if /opt/toolbox/LinuxTools/04.install_w3m.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: 04.install_w3m.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: 04.install_w3m.sh" 6 50
+        fi
+        ;;
+      3.5)
+        level3_menu
+        ;;
+      3.6)
+        level3_menu
+        ;;
+      3.7)
+        level3_menu
+        ;;
+      3.8)
+        level3_menu
+        ;;
+      4.1)
+        level3_menu
+        ;;
+      4.2)
+        if /opt/toolbox/ToolboxTools/view_install_progress.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: view_install_progress.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: view_install_progress.sh" 6 50
+        fi
+        ;;
+      5.1)
+        if /opt/toolbox/CollaboraOnline/update_coolwsd_config.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: update_coolwsd_config.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: update_coolwsd_config.sh" 6 50
+        fi
+        ;;
+      6.1)
+        if /opt/toolbox/SystemSecurityUtilities/selinux_chatgpt_stream.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_chatgpt_stream.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_chatgpt_stream.sh" 6 50
+        fi
+        ;;
+      6.2)
+        if /opt/toolbox/SystemSecurityUtilities/selinux_disable.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_disable.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_disable.sh" 6 50
+        fi
+        ;;
+      6.3)
+        if /opt/toolbox/SystemSecurityUtilities/selinux_install.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_install.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_install.sh" 6 50
+        fi
+        ;;
+      6.4)
+        if /opt/toolbox/SystemSecurityUtilities/selinux_set_enforcing.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_set_enforcing.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_set_enforcing.sh" 6 50
+        fi
+        ;;
+      6.5)
+        if /opt/toolbox/SystemSecurityUtilities/selinux_set_permissive.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: selinux_set_permissive.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: selinux_set_permissive.sh" 6 50
+        fi
+        ;;
+      Return)
+        break
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+}

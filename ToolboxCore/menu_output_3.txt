@@ -1,0 +1,160 @@
+# Level 3 menu submenu
+level3_menu() {
+  while true; do
+    choice=$(dialog --stdout --backtitle "$BACKTITLE" --title "$TITLE Menu" \
+      --menu "Select an option:" 15 60 21 \
+      3.5.1 "3.5.1 htop.sh" \
+      3.5.2 "3.5.2 iftop.sh" \
+      3.5.3 "3.5.3 iotop.sh" \
+      3.5.4 "3.5.4 top.sh" \
+      3.6.1 "3.6.1 selinux" \
+      3.6.2 "3.6.2 ssl" \
+      3.7.1 "3.7.1 disable_ipv6.sh" \
+      3.8.1 "3.8.1 install_advcp.sh" \
+      3.8.2 "3.8.2 install_and_run_speedtest.sh" \
+      4.1.1 "4.1.1 backup_dialogrc.sh" \
+      4.1.10 "4.1.10 yellow_green_theme.sh" \
+      4.1.2 "4.1.2 blue_steel_theme.sh" \
+      4.1.3 "4.1.3 cyan_ice_theme.sh" \
+      4.1.4 "4.1.4 dark_theme.sh" \
+      4.1.5 "4.1.5 green_matrix_theme.sh" \
+      4.1.6 "4.1.6 magenta_glow_theme.sh" \
+      4.1.7 "4.1.7 red_alert_theme.sh" \
+      4.1.8 "4.1.8 reset_theme.sh" \
+      4.1.9 "4.1.9 set_custom_theme.sh" \
+      Return "Return to Main Menu")
+    case "$choice" in
+      3.5.1)
+        if /opt/toolbox/LinuxTools/PerformanceMonitoring/htop.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: htop.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: htop.sh" 6 50
+        fi
+        ;;
+      3.5.2)
+        if /opt/toolbox/LinuxTools/PerformanceMonitoring/iftop.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: iftop.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: iftop.sh" 6 50
+        fi
+        ;;
+      3.5.3)
+        if /opt/toolbox/LinuxTools/PerformanceMonitoring/iotop.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: iotop.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: iotop.sh" 6 50
+        fi
+        ;;
+      3.5.4)
+        if /opt/toolbox/LinuxTools/PerformanceMonitoring/top.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: top.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: top.sh" 6 50
+        fi
+        ;;
+      3.6.1)
+        level4_menu
+        ;;
+      3.6.2)
+        level4_menu
+        ;;
+      3.7.1)
+        if /opt/toolbox/LinuxTools/SystemTweaks/disable_ipv6.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: disable_ipv6.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: disable_ipv6.sh" 6 50
+        fi
+        ;;
+      3.8.1)
+        if /opt/toolbox/LinuxTools/SystemUtilities/install_advcp.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: install_advcp.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: install_advcp.sh" 6 50
+        fi
+        ;;
+      3.8.2)
+        if /opt/toolbox/LinuxTools/SystemUtilities/install_and_run_speedtest.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: install_and_run_speedtest.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: install_and_run_speedtest.sh" 6 50
+        fi
+        ;;
+      4.1.1)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/backup_dialogrc.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: backup_dialogrc.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: backup_dialogrc.sh" 6 50
+        fi
+        ;;
+      4.1.10)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/yellow_green_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: yellow_green_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: yellow_green_theme.sh" 6 50
+        fi
+        ;;
+      4.1.2)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/blue_steel_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: blue_steel_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: blue_steel_theme.sh" 6 50
+        fi
+        ;;
+      4.1.3)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/cyan_ice_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: cyan_ice_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: cyan_ice_theme.sh" 6 50
+        fi
+        ;;
+      4.1.4)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/dark_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: dark_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: dark_theme.sh" 6 50
+        fi
+        ;;
+      4.1.5)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/green_matrix_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: green_matrix_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: green_matrix_theme.sh" 6 50
+        fi
+        ;;
+      4.1.6)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/magenta_glow_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: magenta_glow_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: magenta_glow_theme.sh" 6 50
+        fi
+        ;;
+      4.1.7)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/red_alert_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: red_alert_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: red_alert_theme.sh" 6 50
+        fi
+        ;;
+      4.1.8)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/reset_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: reset_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: reset_theme.sh" 6 50
+        fi
+        ;;
+      4.1.9)
+        if /opt/toolbox/ToolboxTools/ToolboxColours/set_custom_theme.sh; then
+          dialog --backtitle "$BACKTITLE" --title "✅ Success" --msgbox "Script executed: set_custom_theme.sh" 6 50
+        else
+          dialog --backtitle "$BACKTITLE" --title "❌ Error" --msgbox "Failed: set_custom_theme.sh" 6 50
+        fi
+        ;;
+      Return)
+        break
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+}

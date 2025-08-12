@@ -1,0 +1,6 @@
+3.6.1.1 | selinux_chatgpt_stream.sh | script | /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_chatgpt_stream.sh
+3.6.1.2 | selinux_disable.sh | script | /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_disable.sh
+3.6.1.3 | selinux_install.sh | script | /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_install.sh
+3.6.1.4 | selinux_set_enforcing.sh | script | /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_set_enforcing.sh
+3.6.1.5 | selinux_set_permissive.sh | script | /opt/toolbox/LinuxTools/SystemSecurityUtilities/selinux/selinux_set_permissive.sh
+3.6.2.1 | install_letsencrypt_certbot.sh | script | /opt/toolbox/LinuxTools/SystemSecurityUtilities/ssl/install_letsencrypt_certbot.sh
