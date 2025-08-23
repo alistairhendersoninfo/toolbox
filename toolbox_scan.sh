@@ -1,46 +1,89 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+#MN toolbox_scan
+#MD Scan Toolbox scripts and generate menu INI
+#MDD Scans /opt/toolbox for scripts, extracts metadata tags including icons, colours, ordering, and outputs toolbox_menu.ini. Includes TopLevel entries from toolbox_scan_config.ini.
+#MI ToolboxCore
+#INFO https://internal.tool/docs/toolbox
 
 TOOLBOX_DIR="/opt/toolbox"
-OUTPUT_INI="$TOOLBOX_DIR/toolbox_menu.ini"
+INI_FILE="$TOOLBOX_DIR/toolbox_menu.ini"
+CONFIG_FILE="$TOOLBOX_DIR/toolbox_scan_config.ini"
 
-echo "[INFO] Generating toolbox_menu.ini"
-echo "; Auto-generated toolbox menu index" > "$OUTPUT_INI"
+echo "[INFO] Generating $INI_FILE ..."
+echo "; Auto-generated toolbox menu index with metadata" > "$INI_FILE"
 
-for subdir in "$TOOLBOX_DIR"/*; do
-    if [ -d "$subdir" ]; then
-        folder_name=$(basename "$subdir")
-        echo "[$folder_name]" >> "$OUTPUT_INI"
+# Insert TopLevel scripts from toolbox_scan_config.ini if exists
+if [ -f "$CONFIG_FILE" ]; then
+    echo "[TopLevel]" >> "$INI_FILE"
+    read_top=false
 
-        for script in "$subdir"/*.sh; do
-            if [ -f "$script" ]; then
-                mn=$(grep '^#MN:' "$script" | head -n1 | cut -d':' -f2- | xargs)
-                mi=$(grep '^#MI:' "$script" | head -n1 | cut -d':' -f2- | xargs)
+    while IFS= read -r line; do
+        [[ "$line" =~ ^\;.*$ || -z "$line" ]] && continue
 
-                # Skip if no menu name
-                if [ -z "$mn" ]; then
-                    continue
-                fi
+        if [[ "$line" =~ ^\[TopLevel\]$ ]]; then
+            read_top=true
+            continue
+        fi
 
-                # For LinuxTools, include all scripts unconditionally
-                if [ "$folder_name" == "LinuxTools" ]; then
-                    script_key=$(echo "$mn" | tr ' ' '_' | tr '[:upper:]' '[:lower:]')
-                    echo "$script_key=$script" >> "$OUTPUT_INI"
-                    continue
-                fi
+        if [[ "$line" =~ ^\[.*\]$ ]]; then
+            read_top=false
+            continue
+        fi
 
-                # For other folders, apply MI check if defined
-                if [ -n "$mi" ] && [ ! -e "$mi" ]; then
-                    echo "[INFO] Skipping $script due to missing indicator file: $mi"
-                    continue
-                fi
+        if [ "$read_top" == true ]; then
+            script="$TOOLBOX_DIR/$line"
+            [ -f "$script" ] || continue
 
-                script_key=$(echo "$mn" | tr ' ' '_' | tr '[:upper:]' '[:lower:]')
-                echo "$script_key=$script" >> "$OUTPUT_INI"
-            fi
-        done
+            script_key=$(basename "$script" .sh)
 
-        echo "" >> "$OUTPUT_INI"
-    fi
+            # Extract metadata tags
+            icon=$(grep '^#MICON ' "$script" | head -n1 | cut -d' ' -f2-)
+            color=$(grep '^#MCOLOR ' "$script" | head -n1 | cut -d' ' -f2-)
+            order=$(grep '^#MORDER ' "$script" | head -n1 | cut -d' ' -f2-)
+            default=$(grep '^#MDEFAULT ' "$script" | head -n1 | cut -d' ' -f2-)
+            separator=$(grep '^#MSEPARATOR ' "$script" | head -n1 | cut -d' ' -f2-)
+
+            # Set defaults if tags are missing
+            icon="${icon:-📝}"
+            color="${color:-Z2}"
+            order="${order:-999999}"
+            default="${default:-false}"
+            separator="${separator:-}"
+
+            # Output line: script_key=path|icon|color|order|default|separator
+            echo "$script_key=$script|$icon|$color|$order|$default|$separator" >> "$INI_FILE"
+        fi
+    done < "$CONFIG_FILE"
+fi
+
+# Scan each subdirectory as section
+for section_dir in "$TOOLBOX_DIR"/*/; do
+    section=$(basename "$section_dir")
+    echo "[$section]" >> "$INI_FILE"
+
+    for script in "$section_dir"*.sh; do
+        [ -f "$script" ] || continue
+
+        script_key=$(basename "$script" .sh)
+
+        # Extract metadata tags
+        icon=$(grep '^#MICON ' "$script" | head -n1 | cut -d' ' -f2-)
+        color=$(grep '^#MCOLOR ' "$script" | head -n1 | cut -d' ' -f2-)
+        order=$(grep '^#MORDER ' "$script" | head -n1 | cut -d' ' -f2-)
+        default=$(grep '^#MDEFAULT ' "$script" | head -n1 | cut -d' ' -f2-)
+        separator=$(grep '^#MSEPARATOR ' "$script" | head -n1 | cut -d' ' -f2-)
+
+        # Set defaults if tags are missing
+        icon="${icon:-📝}"
+        color="${color:-Z2}"
+        order="${order:-999999}"
+        default="${default:-false}"
+        separator="${separator:-}"
+
+        # Output line: script_key=path|icon|color|order|default|separator
+        echo "$script_key=$script|$icon|$color|$order|$default|$separator" >> "$INI_FILE"
+    done
 done
 
-echo "[INFO] toolbox_menu.ini generated at $OUTPUT_INI"
+echo "[INFO] toolbox_menu.ini generated successfully at $INI_FILE"

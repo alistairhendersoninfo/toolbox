@@ -1,69 +1,86 @@
-## 🚀 Toolbox Installation and Usage
+# 🛡️ Toolbox Scripts Documentation
 
-### 🛠️ Initial Setup
+This documentation is automatically generated from script headers and provides comprehensive information about all available toolbox scripts.
 
-Clone or copy the toolbox repository to your server:
+## 📊 Overview
 
-\`\`\`bash
-git clone <your-repo-url> toolbox
-cd toolbox
-\`\`\`
+- **Total Scripts**: 56
+- **Categories**: 13
+- **Scripts with Parameters**: 0
+- **Authors**: 2
+- **Last Updated**: 2025-08-23 10:00:33
 
-Run the installation script to deploy required dependencies:
+## 📁 Categories
 
-\`\`\`bash
-./install_toolbox.sh
-\`\`\`
+- **[ToolboxTools::ToolboxColours](ToolboxTools__ToolboxColours.md)** (10 scripts)
+- **[Uncategorized](Uncategorized.md)** (9 scripts)
+- **[scripts](scripts.md)** (8 scripts)
+- **[LinuxTools](LinuxTools.md)** (8 scripts)
+- **[LinuxTools::SystemSecurityUtilities::selinux](LinuxTools__SystemSecurityUtilities__selinux.md)** (5 scripts)
+- **[ToolboxCore](ToolboxCore.md)** (4 scripts)
+- **[LinuxTools::PerformanceMonitoring](LinuxTools__PerformanceMonitoring.md)** (4 scripts)
+- **[LinuxTools::SystemUtilities](LinuxTools__SystemUtilities.md)** (2 scripts)
+- **[examples](examples.md)** (2 scripts)
+- **[ToolboxTools](ToolboxTools.md)** (1 scripts)
+- **[LinuxTools::SystemTweaks](LinuxTools__SystemTweaks.md)** (1 scripts)
+- **[LinuxTools::SystemSecurityUtilities::ssl](LinuxTools__SystemSecurityUtilities__ssl.md)** (1 scripts)
+- **[CollaboraOnline](CollaboraOnline.md)** (1 scripts)
 
-### 🔄 Regenerating READMEs
+## 🔍 Quick Reference
 
-\`\`\`bash
-./generate_readme.sh
-\`\`\`
+### By Functionality
 
-### 🔍 Scanning and Menu Indexing
+#### System Administration
+- [System Information](examples.md#system-information) - Display comprehensive system information
+- [System Information](examples.md#system-information) - Display comprehensive system information
 
-\`\`\`bash
-./toolbox_scan.sh
-\`\`\`
+#### Security Tools
 
-### 🔧 Execution
+#### Network Utilities
 
-\`\`\`bash
-./create_toolbox.sh
-\`\`\`
+## 🎯 Script Features
 
-### 🔁 Recommended Maintenance
+### Color Coding
+- 🔴 **Red (Z1)** - Dangerous operations requiring caution
+- 🟡 **Yellow (Z3)** - Operations requiring attention
+- 🟢 **Green (Z2)** - Safe operations
+- 🔵 **Blue (Z4)** - Information and utility scripts
 
-1. **generate_readme.sh** – update documentation
-2. **toolbox_scan.sh** – refresh indexes
-3. **create_toolbox.sh** – test menu system
+### Icons Guide
+- 🛠️ General tools and utilities
+- ⚙️ Configuration and setup scripts
+- 📦 Installation and package management
+- 🚀 Deployment and launch scripts
+- 🔒 Security and authentication
+- 📊 Monitoring and analysis
+- 🔧 Maintenance and repair
+- 📝 Documentation and reporting
 
-### 📅 Automated Updates
+## 📖 Usage
 
-Set up a **cron job** to pull new scripts daily or weekly:
+To use these scripts with the Toolbox Menu System:
 
-- **Daily example (runs at 2am):**
+```bash
+# Install the toolbox menu system
+./scripts/install_complete.sh
 
-\`\`\`bash
-0 2 * * * cd /path/to/toolbox && git pull && ./generate_readme.sh && ./toolbox_scan.sh
-\`\`\`
+# Launch the interactive menu
+toolbox
 
-- **Weekly example (runs every Sunday at 3am):**
+# Or run scripts directly
+/opt/toolbox/CategoryName/script_name.sh
+```
 
-\`\`\`bash
-0 3 * * 0 cd /path/to/toolbox && git pull && ./generate_readme.sh && ./toolbox_scan.sh
-\`\`\`
+## 🔄 Documentation Updates
 
-This ensures your toolbox is always up to date with the latest scripts and documentation.
+This documentation is automatically updated when scripts are modified. The generation process:
 
-### ℹ️ Note
+1. **Scans** all `.sh` files in the repository
+2. **Extracts** metadata from script headers (#MN, #MD, #MDD, etc.)
+3. **Generates** category-based documentation
+4. **Creates** cross-references and indices
+5. **Updates** table of contents and statistics
 
-Ensure all scripts include standard headers:
+---
 
-- \`# MN:\` – **Menu Name** (display name in toolbox menu)
-- \`# MD:\` – **Menu Description** (what the script does)
-- \`# MI:\` – **Menu Install requirement** (required command/package for menu to show entry)
-
-# docs Scripts
-
+*📅 Generated on $(date '+%Y-%m-%d %H:%M:%S') by the Toolbox Documentation System*

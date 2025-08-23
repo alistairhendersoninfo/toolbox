@@ -1,100 +1,97 @@
-## 🚀 Toolbox Installation and Usage
+# 🛡️ Advanced Toolbox Menu System
 
-### 🛠️ Initial Setup
+A modern, Rust-based CLI menu system for organizing and executing system administration scripts with an intuitive, searchable interface.
 
-Clone or copy the toolbox repository to your server:
+## ✨ Features
 
-\`\`\`bash
-git clone <your-repo-url> toolbox
-cd toolbox
-\`\`\`
+- 🗂️ **Hierarchical Menu System** - Folder-based organization with numbered selection
+- 🔍 **Advanced Search** - Real-time fuzzy matching with typeahead
+- 🎨 **Rich UI/UX** - Dialog/TailwindCSS-inspired styling with colors and icons
+- 🏷️ **Comprehensive Metadata** - Rich script tagging and categorization
+- 🗄️ **Database-Backed** - Fast SQLite-based indexing and retrieval
+- ⚙️ **JSON Parameter System** - Interactive parameter collection with validation
+- 🚀 **Enhanced Execution** - Progress bars, output capture, and history tracking
+- ⌨️ **Keyboard Shortcuts** - Efficient navigation and control
 
-Run the installation script to deploy required dependencies:
+## 🚀 Quick Start
 
-\`\`\`bash
-./install_toolbox.sh
-\`\`\`
+### Prerequisites
+- Rust 1.70+ (for building)
+- Linux/Unix system with bash
+- SQLite3 (bundled)
 
-### 🔄 Regenerating READMEs
+### Installation
 
-\`\`\`bash
-./generate_readme.sh
-\`\`\`
+```bash
+# Clone the repository
+git clone <repository-url>
+cd toolbox-menu
 
-### 🔍 Scanning and Menu Indexing
+# Build and install
+chmod +x build.sh
+./build.sh --install
 
-\`\`\`bash
-./toolbox_scan.sh
-\`\`\`
+# First run - scan your toolbox directory
+toolbox --scan --path /opt/toolbox
 
-### 🔧 Execution
+# Start the menu system
+toolbox
+```
 
-\`\`\`bash
-./create_toolbox.sh
-\`\`\`
+## ⌨️ Navigation
 
-### 🔁 Recommended Maintenance
+| Key | Action |
+|-----|--------|
+| `↑↓` or `j/k` | Move selection |
+| `Enter` | Execute/Select |
+| `1-9, 0` | Quick select by number |
+| `X` | Go back |
+| `H` | Go home |
+| `S` | Search mode |
+| `Q` | Quit |
+| `F1` or `?` | Help |
 
-1. **generate_readme.sh** – update documentation
-2. **toolbox_scan.sh** – refresh indexes
-3. **create_toolbox.sh** – test menu system
+## 📝 Script Format
 
-### 📅 Automated Updates
+```bash
+#!/usr/bin/env bash
+#MN Script Name
+#MD Brief description
+#MDD Detailed description
+#MI Category
+#INFO https://docs-url.com
+#MICON 🛠️
+#MCOLOR Z2
+#MORDER 100
+#MTAGS tag1,tag2,tag3
 
-Set up a **cron job** to pull new scripts daily or weekly:
+# Your script here
+echo "Hello from toolbox!"
+```
 
-- **Daily example (runs at 2am):**
+## 🎨 Color Coding
 
-\`\`\`bash
-0 2 * * * cd /path/to/toolbox && git pull && ./generate_readme.sh && ./toolbox_scan.sh
-\`\`\`
+- 🔴 **Red (Z1)** - Dangerous operations
+- 🟡 **Yellow (Z3)** - Caution required  
+- 🟢 **Green (Z2)** - Safe operations
+- 🔵 **Blue (Z4)** - Information/utilities
 
-- **Weekly example (runs every Sunday at 3am):**
+## 📚 Documentation
 
-\`\`\`bash
-0 3 * * 0 cd /path/to/toolbox && git pull && ./generate_readme.sh && ./toolbox_scan.sh
-\`\`\`
+See [TOOLBOX_SYSTEM_DOCUMENTATION.md](TOOLBOX_SYSTEM_DOCUMENTATION.md) for comprehensive documentation.
 
-This ensures your toolbox is always up to date with the latest scripts and documentation.
+## 🤝 Contributing
 
-### ℹ️ Note
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests: `cargo test`
+5. Submit a pull request
 
-Ensure all scripts include standard headers:
+## 📄 License
 
-- \`# MN:\` – **Menu Name** (display name in toolbox menu)
-- \`# MD:\` – **Menu Description** (what the script does)
-- \`# MI:\` – **Menu Install requirement** (required command/package for menu to show entry)
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-# Toolbox Scripts Summary
+---
 
-## Linux Tools
-
-### [PerformanceMonitoring] iftop.sh
-- **Description:** Displays real-time bandwidth usage per connection.
-
-### [PerformanceMonitoring] iotop.sh
-- **Description:** Monitor disk I/O usage by processes.
-
-### [PerformanceMonitoring] top.sh
-- **Description:** Displays real-time system processes and CPU usage.
-
-### [PerformanceMonitoring] htop.sh
-- **Description:** Interactive process viewer with color and tree view.
-
-### [SystemTweaks] disable_ipv6.sh
-- **Description:** Temporarily disable IPv6 on all interfaces
-
-### [SystemUtilities] install_and_run_speedtest.sh
-- **Description:** Check if Ookla Speedtest CLI is installed, install if missing, then run it
-
-### [SystemUtilities] install_advcp.sh
-- **Description:** Install advcp/advmv with optional aliases configured in .bashrc
-
-## CollaboraOnline
-
-### [CollaboraOnline] update_coolwsd_config.sh
-- **Description:** This change the xml file base on your inputs for the Online collabora server
-- **MI:** /etc/coolwsd/coolwsd.xml (not installed, menu hidden)
-
-## docs
-
+**Built with ❤️ for system administrators who deserve better tools.**
