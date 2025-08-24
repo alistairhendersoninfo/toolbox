@@ -80,7 +80,7 @@ jobs:
     
     - name: Push documentation changes
       if: steps.verify-changed-files.outputs.changed == 'true'
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref_name }}
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git push origin HEAD:${{ github.ref_name }}
