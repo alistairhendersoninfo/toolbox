@@ -4,23 +4,23 @@ This documentation is automatically generated from script headers and provides c
 
 ## 📊 Overview
 
-- **Total Scripts**: 56
+- **Total Scripts**: 53
 - **Categories**: 13
 - **Scripts with Parameters**: 0
 - **Authors**: 2
-- **Last Updated**: 2025-08-23 10:00:33
+- **Last Updated**: 2025-08-24 07:31:25
 
 ## 📁 Categories
 
 - **[ToolboxTools::ToolboxColours](ToolboxTools__ToolboxColours.md)** (10 scripts)
-- **[Uncategorized](Uncategorized.md)** (9 scripts)
 - **[scripts](scripts.md)** (8 scripts)
 - **[LinuxTools](LinuxTools.md)** (8 scripts)
+- **[Uncategorized](Uncategorized.md)** (6 scripts)
 - **[LinuxTools::SystemSecurityUtilities::selinux](LinuxTools__SystemSecurityUtilities__selinux.md)** (5 scripts)
 - **[ToolboxCore](ToolboxCore.md)** (4 scripts)
 - **[LinuxTools::PerformanceMonitoring](LinuxTools__PerformanceMonitoring.md)** (4 scripts)
-- **[LinuxTools::SystemUtilities](LinuxTools__SystemUtilities.md)** (2 scripts)
 - **[examples](examples.md)** (2 scripts)
+- **[LinuxTools::SystemUtilities](LinuxTools__SystemUtilities.md)** (2 scripts)
 - **[ToolboxTools](ToolboxTools.md)** (1 scripts)
 - **[LinuxTools::SystemTweaks](LinuxTools__SystemTweaks.md)** (1 scripts)
 - **[LinuxTools::SystemSecurityUtilities::ssl](LinuxTools__SystemSecurityUtilities__ssl.md)** (1 scripts)

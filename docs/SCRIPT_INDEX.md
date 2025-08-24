@@ -166,11 +166,17 @@ This is a comprehensive alphabetical index of all scripts in the toolbox.
 **File:** `iftop.sh`  
 **Description:** No description available
 
-### 📝 init_pages
+### 📝 Install Let's Encrypt SSL
 
-**Category:** [Uncategorized](Uncategorized.md)  
-**File:** `init_pages.sh`  
-**Description:** No description available
+**Category:** [LinuxTools::SystemSecurityUtilities::ssl](LinuxTools__SystemSecurityUtilities__ssl.md)  
+**File:** `install_letsencrypt_certbot.sh`  
+**Description:** Install certbot and display SSL creation guide with email registration
+
+### 📦 Install Script Dependencies
+
+**Category:** [scripts](scripts.md)  
+**File:** `install_dependencies.sh`  
+**Description:** Automatically install missing dependencies for toolbox scripts
 
 ### 📝 install_advcp
 
@@ -190,35 +196,17 @@ This is a comprehensive alphabetical index of all scripts in the toolbox.
 **File:** `1.install_browsh.sh`  
 **Description:** Install Browsh browser
 
-### 📝 install_docs
-
-**Category:** [Uncategorized](Uncategorized.md)  
-**File:** `install_docs.sh`  
-**Description:** No description available
-
 ### 📝 install_elinks
 
 **Category:** [LinuxTools](LinuxTools.md)  
 **File:** `2.install_elinks.sh`  
 **Description:** Install ELinks browser
 
-### 📝 Install Let's Encrypt SSL
-
-**Category:** [LinuxTools::SystemSecurityUtilities::ssl](LinuxTools__SystemSecurityUtilities__ssl.md)  
-**File:** `install_letsencrypt_certbot.sh`  
-**Description:** Install certbot and display SSL creation guide with email registration
-
 ### 📝 install_links
 
 **Category:** [LinuxTools](LinuxTools.md)  
 **File:** `3.install_links.sh`  
 **Description:** Install Links browser
-
-### 📦 Install Script Dependencies
-
-**Category:** [scripts](scripts.md)  
-**File:** `install_dependencies.sh`  
-**Description:** Automatically install missing dependencies for toolbox scripts
 
 ### 📝 install_sqlite
 
@@ -322,12 +310,6 @@ This is a comprehensive alphabetical index of all scripts in the toolbox.
 **File:** `update_coolwsd_config.sh`  
 **Description:** No description available
 
-### 📝 update_pages
-
-**Category:** [Uncategorized](Uncategorized.md)  
-**File:** `update_pages.sh`  
-**Description:** No description available
-
 ### ✅ Validate Documentation
 
 **Category:** [scripts](scripts.md)  
@@ -370,12 +352,10 @@ This is a comprehensive alphabetical index of all scripts in the toolbox.
 - **`green_matrix_theme.sh`** - [Apply Green Matrix Theme](ToolboxTools__ToolboxColours.md#apply-green-matrix-theme) - Applies green matrix terminal style theme to dialog
 - **`htop.sh`** - [htop](LinuxTools__PerformanceMonitoring.md#htop) - No description available
 - **`iftop.sh`** - [iftop](LinuxTools__PerformanceMonitoring.md#iftop) - No description available
-- **`init_pages.sh`** - [init_pages](Uncategorized.md#init_pages) - No description available
 - **`install_advcp.sh`** - [install_advcp](LinuxTools__SystemUtilities.md#install_advcp) - No description available
 - **`install_and_run_speedtest.sh`** - [install_and_run_speedtest](LinuxTools__SystemUtilities.md#install_and_run_speedtest) - No description available
 - **`install_complete.sh`** - [Complete Installation](scripts.md#complete-installation) - Complete automated installation of toolbox menu system
 - **`install_dependencies.sh`** - [Install Script Dependencies](scripts.md#install-script-dependencies) - Automatically install missing dependencies for toolbox scripts
-- **`install_docs.sh`** - [install_docs](Uncategorized.md#install_docs) - No description available
 - **`install_letsencrypt_certbot.sh`** - [Install Let's Encrypt SSL](LinuxTools__SystemSecurityUtilities__ssl.md#install-let's-encrypt-ssl) - Install certbot and display SSL creation guide with email registration
 - **`install_sqlite.sh`** - [install_sqlite](ToolboxCore.md#install_sqlite) - Install SQLite dependency
 - **`install_toolbox.sh`** - [install_toolbox](Uncategorized.md#install_toolbox) - Install Toolbox core components
@@ -395,7 +375,6 @@ This is a comprehensive alphabetical index of all scripts in the toolbox.
 - **`toolbox_scan.sh`** - [toolbox_scan](Uncategorized.md#toolbox_scan) - Scan Toolbox scripts and generate menu INI
 - **`top.sh`** - [top](LinuxTools__PerformanceMonitoring.md#top) - No description available
 - **`update_coolwsd_config.sh`** - [update_coolwsd_config](CollaboraOnline.md#update_coolwsd_config) - No description available
-- **`update_pages.sh`** - [update_pages](Uncategorized.md#update_pages) - No description available
 - **`validate_documentation.sh`** - [Validate Documentation](scripts.md#validate-documentation) - Validate generated documentation for completeness and accuracy
 - **`view_install_progress.sh`** - [View Install Progress](ToolboxTools.md#view-install-progress) - View install progress status from Toolbox state.db with graphical mixed gauge
 - **`yellow_green_theme.sh`** - [Apply Yellow-Green Theme](ToolboxTools__ToolboxColours.md#apply-yellow-green-theme) - Applies yellow border with green buttons to dialog
@@ -408,4 +387,4 @@ This is a comprehensive alphabetical index of all scripts in the toolbox.
 
 ---
 
-*📅 Generated on 2025-08-23 10:00:34*
+*📅 Generated on 2025-08-24 07:31:26*
